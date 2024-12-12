@@ -14,6 +14,7 @@ import {
 } from "@/types";
 import {
   BRAND_LIST,
+  KEYWORD_LIST,
   PERIOD_LIST,
   PRICE_LIST,
   REGION_LIST,
@@ -185,8 +186,8 @@ const WebFilters = ({
   return (
     <div className={styles.filters_container}>
       <div className={styles.filters_wrapper}>
-        <h3>브랜드</h3>
-        {BRAND_LIST.map((brand) => {
+        <h3>키워드</h3>
+        {KEYWORD_LIST.map((brand) => {
           return (
             <button
               className={`${styles.filter} ${
@@ -297,7 +298,7 @@ const WebFilters = ({
           </button>
         </div>
       </div>
-      <div className={styles.filters_wrapper}>
+      {/* <div className={styles.filters_wrapper}>
         <h3>지역</h3>
         {REGION_LIST.map((region) => {
           return (
@@ -319,7 +320,7 @@ const WebFilters = ({
             </button>
           );
         })}
-      </div>
+      </div> */}
       <div className={styles.filters_wrapper}>
         <h3>기간</h3>
         {PERIOD_LIST.map((period) => {

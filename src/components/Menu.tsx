@@ -45,7 +45,7 @@ export default function Menu(): ReactElement {
 
   return (
     <div className={styles.menu}>
-      <Link href={"/about"}>
+      {/* <Link href={"/about"}>
         <h3>소개</h3>
       </Link>
       {isSession ? (
@@ -60,7 +60,7 @@ export default function Menu(): ReactElement {
           <Link href="/signin">로그인</Link>
           <Link href="/signup">회원가입</Link>
         </>
-      )}
+      )} */}
     </div>
   );
 }

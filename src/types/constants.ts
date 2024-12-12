@@ -20,6 +20,8 @@ export const BRAND_LIST: string[] = [
   "엔픽스",
 ];
 
+export const KEYWORD_LIST: string[] = ["ALL", "샤넬", "구찌", "루이비통"];
+
 export const PRICE_LIST: MinMaxPrice[] = [
   { key: "ALL", minPrice: "", maxPrice: "" },
   { key: "0~10만원", minPrice: 0, maxPrice: 100000 },
@@ -42,7 +44,6 @@ export const SOURCE_TYPE_LIST: StringValue[] = [
   { key: "번개장터", value: "BUNJANG" },
   { key: "세컨웨어", value: "SECOND" },
   { key: "중고나라", value: "JUNGGO" },
-  { key: "네이버", value: "NAVER" },
 ];
 
 export const REGION_LIST: string[] = [
