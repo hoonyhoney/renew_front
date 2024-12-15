@@ -13,11 +13,9 @@ import {
   type Value,
 } from "@/types";
 import {
-  BRAND_LIST,
   KEYWORD_LIST,
   PERIOD_LIST,
   PRICE_LIST,
-  REGION_LIST,
   SOURCE_TYPE_LIST,
 } from "@/types/constants";
 
@@ -31,12 +29,11 @@ const WebFilters = ({
   const [activePrice, setActivePrice] = useState("ALL");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
-  const [activeRegion, setActiveRegion] = useState(["ALL"]);
+  const [, setActiveRegion] = useState(["ALL"]);
   const [town, setTown] = useState("");
   const [activePeriod, setActivePeriod] = useState("ALL");
   const [activeSourceType, setActiveSourceType] = useState(["ALL"]);
   const [text, setText] = useState("");
-  const [, setRender] = useState("");
 
   const handleBrand = useCallback(
     (value: string): void => {
@@ -66,38 +63,6 @@ const WebFilters = ({
       });
     },
     [activeBrand],
-  );
-
-  const selectRegion = useCallback(
-    (value: string): void => {
-      let prevArr = activeRegion;
-      setRender(text);
-      setText("");
-      if (value === "ALL") {
-        prevArr = ["ALL"];
-      } else if (activeRegion.includes(value)) {
-        // activeRegion에 value가 있으면 제거
-        prevArr = activeRegion.filter(
-          (region) => region !== value && region !== "ALL",
-        );
-      } else {
-        // activeBrand에 value가 없으면 추가
-        prevArr = activeRegion.filter((region) => region !== "ALL");
-        prevArr.push(value);
-      }
-      if (prevArr.length === 0) {
-        prevArr = ["ALL"];
-        value = "ALL";
-      }
-      setActiveRegion(prevArr);
-      handleFilter({
-        target: {
-          name: "region",
-          value: value === "ALL" ? "" : prevArr,
-        },
-      });
-    },
-    [activeRegion],
   );
 
   const handlePrice = useCallback(

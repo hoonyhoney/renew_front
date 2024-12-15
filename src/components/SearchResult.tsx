@@ -7,7 +7,6 @@ import React, {
   useState,
 } from "react";
 import { useFilter } from "@/context/FilterContext";
-import Link from "next/link";
 
 const SearchResult = ({
   resultCount,

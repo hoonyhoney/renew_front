@@ -1,19 +1,18 @@
 "use client";
 
 import styles from "@/styles/page.module.css";
-import Link from "next/link";
 import React, {
   type ReactElement,
   useEffect,
   useState,
   useTransition,
 } from "react";
-import { getSession, signOutWithForm } from "@/serverActions/auth";
+import { getSession } from "@/serverActions/auth";
 
 export default function Menu(): ReactElement {
   // const session = useSession();
   const [, startTransition] = useTransition();
-  const [isSession, setIsSession] = useState<boolean>(false);
+  const [, setIsSession] = useState<boolean>(false);
 
   const refreshSession = (): void => {
     startTransition(async () => {
@@ -21,21 +20,6 @@ export default function Menu(): ReactElement {
       if (session !== null) {
         setIsSession(true);
       }
-    });
-  };
-
-  const submitSignOut = async (formData: FormData): Promise<void> => {
-    startTransition(async () => {
-      await signOutWithForm(formData);
-      setIsSession(false);
-    });
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    submitSignOut(formData).catch((e) => {
-      console.error(e);
     });
   };
 
