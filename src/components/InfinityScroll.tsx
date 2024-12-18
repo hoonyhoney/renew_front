@@ -52,6 +52,7 @@ const InfinityScroll = ({
 
     getProductList(filter, defaultRegion)
       .then((response) => {
+        console.log("response", response);
         setResultCount(response.totalElements);
         if (response.content.length === 0) {
           setHasMore(false);
