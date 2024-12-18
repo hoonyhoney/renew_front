@@ -4,7 +4,6 @@ import React, { type ReactElement } from "react";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import { FilterProvider } from "@/context/FilterContext";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import AuthProvider from "@/context/AuthProvider";
 import { auth } from "@/auth";
 
@@ -44,16 +43,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }): Promise<ReactElement> {
-  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? "";
-  const gtmId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER ?? "";
   const session = await auth();
 
   return (
     <html lang="ko">
       <body>
         <AuthProvider session={session}>
-          <GoogleTagManager gtmId={gtmId} />
-          <GoogleAnalytics gaId={gaId} />
           <FilterProvider>
             <div className="main">
               {children}
