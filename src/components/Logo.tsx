@@ -44,9 +44,9 @@ export default function Logo(): JSX.Element {
       className={styles.logo}
       onClick={() => {
         if (location.pathname === "/") {
-          router.refresh();
+          window.location.reload(); // 현재 페이지 새로고침
         } else {
-          router.push("/");
+          window.location.reload(); // 다른 페이지에서도 동일하게 새로고침
         }
       }}
       onKeyDown={(event) => {
