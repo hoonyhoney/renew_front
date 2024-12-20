@@ -1,31 +1,10 @@
 "use client";
 
 import styles from "@/styles/page.module.css";
-import React, {
-  type ReactElement,
-  useEffect,
-  useState,
-  useTransition,
-} from "react";
-import { getSession } from "@/serverActions/auth";
+import React, { type ReactElement } from "react";
 
 export default function Menu(): ReactElement {
   // const session = useSession();
-  const [, startTransition] = useTransition();
-  const [, setIsSession] = useState<boolean>(false);
-
-  const refreshSession = (): void => {
-    startTransition(async () => {
-      const session = await getSession();
-      if (session !== null) {
-        setIsSession(true);
-      }
-    });
-  };
-
-  useEffect(() => {
-    refreshSession();
-  }, []);
 
   return (
     <div className={styles.menu}>
