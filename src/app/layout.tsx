@@ -4,6 +4,7 @@ import React, { type ReactElement } from "react";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import { FilterProvider } from "@/context/FilterContext";
+import AuthSession from '@/components/session-provider';
 
 export const metadata: Metadata = {
   verification: {
@@ -44,12 +45,14 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <AuthSession>
         <FilterProvider>
           <div className="main">
             {children}
             <Footer />
           </div>
         </FilterProvider>
+        </AuthSession>
       </body>
     </html>
   );
